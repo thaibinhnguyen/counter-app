@@ -24,7 +24,15 @@ export default class Counters extends Component {
         counters[index].value++;
         this.setState({ counters });
     };
-    handleReset = () => {};
+    handleReset = () => {
+        let counters = [];
+        this.state.counters.forEach((counter) => {
+            let count = { ...counter };
+            count.value = 0;
+            counters.push(count);
+        });
+        this.setState({ counters });
+    };
     render() {
         return (
             <div>
